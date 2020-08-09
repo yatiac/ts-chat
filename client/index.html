@@ -1,0 +1,25 @@
+<!-- ./client/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pruebas Chat</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div id="chat-container">
+        <div id="chat-windows">
+          <div id="output"></div>
+          <div id="actions"></div>
+        </div>
+        <input type="text" id="username" placeholder="Nombre de Usuario">
+        <input type="text" id="message" placeholder="Mensaje">
+        <input type="text" id="room" placeholder="Sala de Chat">
+        <button id="send">Enviar</button>
+      </div>
+  </body>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="chat.js"></script>
+</html>
