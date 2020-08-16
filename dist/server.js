@@ -9,10 +9,16 @@ const server = app.listen(port, function () {
 });
 const SocketIO = require("socket.io");
 const io = SocketIO(server);
+var users = [];
 app.use(express.static('client'));
 //Socket control de Eventos
 io.on("connection", function (socket) {
     console.log("Usuario Conectado", socket.id);
+    socket.on("username", function (username) {
+        users[username] = socket.id;
+        //io.emit("username", username);
+        console.log("Usuario Conectado como ", username);
+    });
     socket.on("message", function (message, room) {
         console.log(message);
         io.emit('message', message);

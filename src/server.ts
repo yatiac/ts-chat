@@ -12,6 +12,7 @@ const server = app.listen(port, function(){
 const SocketIO = require("socket.io");
 const io = SocketIO(server);
 
+var users = [];
 
 app.use(express.static('client'));
 
@@ -20,6 +21,12 @@ app.use(express.static('client'));
 io.on("connection", function(socket: any) {
     console.log("Usuario Conectado",socket.id);
 
+    socket.on("username", function (username: any) {
+		users[username] = socket.id;
+        //io.emit("username", username);
+        console.log("Usuario Conectado como ",username);
+    });
+    
     socket.on("message", function(message: any, room: any) {
         console.log(message);
         io.emit('message',message);

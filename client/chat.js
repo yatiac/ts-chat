@@ -6,9 +6,12 @@ let btn = document.getElementById('send');
 let output = document.getElementById('output');
 let actions = document.getElementById('actions');
 let room = document.getElementById('room');
+let log = document.getElementById('log');
 
-socket.on('connect', function (username) {
-    socket.emit('join', {username:username.value});
+log.addEventListener('click',function (){
+    socket.emit('username',{
+        username: username.value
+    })
 });
 
 btn.addEventListener('click',function (){
